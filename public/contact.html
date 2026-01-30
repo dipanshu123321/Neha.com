@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Book Appointment | Neha Makeup</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-pink-50 text-gray-800">
+
+<!-- 🔹 BOOKING SECTION -->
+<section class="py-20">
+  <div class="max-w-5xl mx-auto px-6">
+
+    <h1 class="text-4xl font-bold text-center text-pink-600 mb-10">
+      Book Your Makeup Appointment
+    </h1>
+
+    <form id="bookingForm"
+      class="bg-white rounded-3xl shadow-xl p-8 space-y-6 hover:shadow-2xl transition">
+
+      <!-- Name -->
+      <input id="name" type="text" name="name" placeholder="Full Name"
+        class="w-full p-3 rounded-xl border focus:ring-2 focus:ring-pink-400 outline-none"/>
+
+      <!-- Mobile -->
+      <input id="phone" type="tel" name="phone" placeholder="Mobile Number"
+        class="w-full p-3 rounded-xl border focus:ring-2 focus:ring-pink-400 outline-none"/>
+
+      <!-- Email -->
+      <input id="email" type="email" name="email" placeholder="Email Address"
+        class="w-full p-3 rounded-xl border focus:ring-2 focus:ring-pink-400 outline-none"/>
+
+      <!-- Plan -->
+      <select id="plan" name="plan"
+        class="w-full p-3 rounded-xl border focus:ring-2 focus:ring-pink-400">
+        <option value="">Select Plan</option>
+        <option>Bridal Makeup – ₹10,000 (Full Day)</option>
+        <option>Engagement Makeup – ₹5,000</option>
+        <option>Party Makeup – ₹2,000</option>
+        <option>HD / Airbrush Makeup – ₹7,000</option>
+        <option>Family Package – ₹2,000 / Hour</option>
+        <option>Photoshoot Makeup – Custom</option>
+      </select>
+
+      <!-- City -->
+      <select id="city" name="city"
+        class="w-full p-3 rounded-xl border focus:ring-2 focus:ring-pink-400">
+        <option value="">Select City (MP)</option>
+        <option>Indore</option>
+        <option>Bhopal</option>
+        <option>Ujjain</option>
+        <option>Dewas</option>
+        <option>Ratlam</option>
+        <option>Jabalpur</option>
+        <option>Gwalior</option>
+        <option>Sagar</option>
+        <option>Rewa</option>
+        <option>Satna</option>
+        <option>Khandwa</option>
+        <option>Khargone</option>
+      </select>
+
+      <!-- Date -->
+      <input id="date" type="date" name="date"
+        class="w-full p-3 rounded-xl border focus:ring-2 focus:ring-pink-400"/>
+
+      <!-- Time Slot -->
+      <div class="flex gap-4">
+        <label class="flex-1 text-center p-3 rounded-xl border cursor-pointer hover:bg-pink-100 transition">
+          <input type="radio" name="time" value="Morning" hidden> 🌅 Morning
+        </label>
+        <label class="flex-1 text-center p-3 rounded-xl border cursor-pointer hover:bg-pink-100 transition">
+          <input type="radio" name="time" value="Evening" hidden> 🌙 Evening
+        </label>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit"
+        class="w-full py-3 bg-pink-600 text-white rounded-xl
+               hover:bg-pink-700 hover:scale-105 transition font-semibold">
+        Book Now
+      </button>
+
+      <p id="formMsg" class="text-center text-sm mt-2"></p>
+    </form>
+  </div>
+</section>
+
+<!-- 🔹 CONTACT INFO -->
+<section class="bg-white py-16">
+  <div class="max-w-4xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8">
+
+    <div class="p-6 rounded-2xl shadow hover:shadow-xl transition text-center">
+      <h3 class="text-xl font-semibold mb-2">📧 Email Us</h3>
+      <p class="text-gray-600">nehamakeup@gmail.com</p>
+    </div>
+
+    <div class="p-6 rounded-2xl shadow hover:shadow-xl transition text-center">
+      <h3 class="text-xl font-semibold mb-2">📞 Call Us</h3>
+      <p class="text-gray-600">+91 98765 43210</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- 🔹 VALIDATION + SUBMIT JS -->
+<script>
+const form = document.getElementById("bookingForm");
+const msg = document.getElementById("formMsg");
+
+function error(el, text) {
+  el.classList.add("border-red-500");
+  msg.textContent = text;
+  msg.className = "text-red-500 text-center";
+  el.focus();
+}
+
+function success(el) {
+  el.classList.remove("border-red-500");
+  el.classList.add("border-green-500");
+}
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const name = document.getElementById("name");
+  const phone = document.getElementById("phone");
+  const email = document.getElementById("email");
+  const plan = document.getElementById("plan");
+  const city = document.getElementById("city");
+  const date = document.getElementById("date");
+  const time = document.querySelector("input[name='time']:checked");
+
+  msg.textContent = "";
+
+  // 🔍 VALIDATION
+  if (!name.value.trim()) return error(name, "Name is required");
+  success(name);
+
+  if (!/^[6-9]\d{9}$/.test(phone.value))
+    return error(phone, "Enter valid 10-digit mobile");
+  success(phone);
+
+  if (!/^\S+@\S+\.\S+$/.test(email.value))
+    return error(email, "Enter valid email");
+  success(email);
+
+  if (!plan.value) return error(plan, "Please select a plan");
+  success(plan);
+
+  if (!city.value) return error(city, "Please select city");
+  success(city);
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  if (!date.value || new Date(date.value) < today)
+    return error(date, "Select a future date");
+  success(date);
+
+  if (!time) {
+    msg.textContent = "Please select Morning or Evening";
+    msg.className = "text-red-500 text-center";
+    return;
+  }
+
+  // ✅ ALL OK → SEND DATA
+  msg.textContent = "Submitting...";
+  msg.className = "text-pink-600 text-center";
+
+  const data = Object.fromEntries(new FormData(form));
+
+  try {
+    const res = await fetch("/.netlify/functions/book", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    });
+
+    const result = await res.json();
+    msg.textContent = result.message;
+    msg.className = "text-green-600 text-center";
+    form.reset();
+
+  } catch (err) {
+    msg.textContent = "Server error. Try again.";
+    msg.className = "text-red-500 text-center";
+  }
+});
+</script>
+
+</body>
+</html>

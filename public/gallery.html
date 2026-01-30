@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bridal Gallery | Neha Makeup</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background: #fff5f7;
+    }
+    .gallery-card {
+      overflow: hidden;
+      border-radius: 20px;
+      position: relative;
+      cursor: pointer;
+    }
+    .gallery-card img {
+      transition: transform 0.6s ease;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+    .gallery-card:hover img {
+      transform: scale(1.1);
+    }
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .gallery-card:hover .gallery-overlay {
+      opacity: 1;
+    }
+    .gallery-overlay h5 {
+      color: #fff;
+      font-size: 1.3rem;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- 🔹 HEADER -->
+<div class="container py-5 text-center">
+  <h1 class="fw-bold text-danger">Bridal Gallery</h1>
+  <p class="text-muted">Explore our beautiful bridal transformations</p>
+</div>
+
+<!-- 🔹 GALLERY GRID -->
+<div class="container pb-5">
+  <div class="row g-4">
+
+    <!-- CARD 1 -->
+    <div class="col-12 col-sm-6 col-md-4">
+      <div class="gallery-card shadow">
+        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9" alt="Bride">
+        <div class="gallery-overlay">
+          <h5>Bridal Makeup</h5>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="col-12 col-sm-6 col-md-4">
+      <div class="gallery-card shadow">
+        <img src="https://images.unsplash.com/photo-1532446997697-0b92a5a9c6c7" alt="Bride">
+        <div class="gallery-overlay">
+          <h5>Wedding Look</h5>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="col-12 col-sm-6 col-md-4">
+      <div class="gallery-card shadow">
+        <img src="https://images.unsplash.com/photo-1595475884562-073c30d45670" alt="Bride">
+        <div class="gallery-overlay">
+          <h5>Royal Bride</h5>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 4 -->
+    <div class="col-12 col-sm-6 col-md-4">
+      <div class="gallery-card shadow">
+        <img src="https://images.unsplash.com/photo-1600180758890-6b94519a8ba6" alt="Bride">
+        <div class="gallery-overlay">
+          <h5>Classic Bridal</h5>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 5 -->
+    <div class="col-12 col-sm-6 col-md-4">
+      <div class="gallery-card shadow">
+        <img src="https://images.unsplash.com/photo-1610173827043-8fbb47e6f1c5" alt="Bride">
+        <div class="gallery-overlay">
+          <h5>Engagement Look</h5>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 6 -->
+    <div class="col-12 col-sm-6 col-md-4">
+      <div class="gallery-card shadow">
+        <img src="https://images.unsplash.com/photo-1612178537259-05a9f0b1a4f4" alt="Bride">
+        <div class="gallery-overlay">
+          <h5>Party Makeup</h5>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
