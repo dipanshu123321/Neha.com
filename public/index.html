@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neha Makeup Studio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-white text-gray-800 overflow-x-hidden">
+
+<!-- 🔹 NAVBAR -->
+<header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur shadow">
+  <nav class="max-w-7xl mx-auto flex items-center justify-between p-4">
+    <h1 class="text-2xl font-bold text-pink-600">Neha Makeup</h1>
+    <ul class="hidden md:flex gap-8 font-medium">
+      <li class="hover:text-pink-500 transition">Home</li>
+      <li class="hover:text-pink-500 transition">Gallery</li>
+      <li class="hover:text-pink-500 transition">Services</li>
+      <li class="hover:text-pink-500 transition">Contact</li>
+    </ul>
+    <button class="md:hidden text-pink-600 text-2xl">☰</button>
+  </nav>
+</header>
+
+<!-- 🔹 HERO SECTION -->
+<section class="pt-24 min-h-screen flex items-center">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 px-6 items-center">
+
+    <!-- TEXT -->
+    <div class="space-y-6 animate-fadeIn">
+      <h2 class="text-4xl md:text-6xl font-bold leading-tight">
+        Be Your <span class="text-pink-600">Most Beautiful</span> Self
+      </h2>
+      <p class="text-gray-600">
+        Professional bridal & party makeup for your special moments.
+      </p>
+      <button class="px-8 py-3 bg-pink-600 text-white rounded-full 
+                     hover:bg-pink-700 transition transform hover:scale-105">
+        Book Appointment
+      </button>
+    </div>
+
+    <!-- IMAGE -->
+    <div class="relative group">
+      <div class="absolute inset-0 bg-pink-300 rounded-3xl blur-3xl 
+                  opacity-30 group-hover:opacity-50 transition"></div>
+      <img
+        src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9"
+        alt="Bridal Makeup"
+        class="relative rounded-3xl w-full h-[420px] object-cover 
+               transform group-hover:scale-105 transition duration-700"
+      />
+    </div>
+
+  </div>
+</section>
+
+<!-- 🔹 FEATURES -->
+<section class="py-20 bg-pink-50">
+  <div class="max-w-7xl mx-auto px-6">
+    <h3 class="text-3xl font-bold text-center mb-12">
+      Why Choose Us
+    </h3>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl 
+                  transition transform hover:-translate-y-2">
+        <h4 class="text-xl font-semibold mb-2">Expert Artists</h4>
+        <p class="text-gray-600">Certified & experienced makeup professionals.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl 
+                  transition transform hover:-translate-y-2">
+        <h4 class="text-xl font-semibold mb-2">Premium Products</h4>
+        <p class="text-gray-600">Only high-quality, skin-friendly brands.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl 
+                  transition transform hover:-translate-y-2">
+        <h4 class="text-xl font-semibold mb-2">On-Time Service</h4>
+        <p class="text-gray-600">We value your special moments.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 🔹 CTA -->
+<section class="py-20 bg-pink-600 text-white text-center">
+  <h3 class="text-3xl font-bold mb-4">Ready for Your Big Day?</h3>
+  <button class="px-10 py-3 bg-white text-pink-600 rounded-full 
+                 hover:scale-105 transition font-semibold">
+    Book Now
+  </button>
+</section>
+
+</body>
+</html>
