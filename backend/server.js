@@ -7,24 +7,30 @@ import bookingRoutes from "./routes/bookingRoutes.js";
 // Load environment variables
 dotenv.config();
 
-// Connect MongoDB
-connectDB();
-
+// Init app
 const app = express();
 
 // Middlewares
 app.use(cors());
 app.use(express.json());
 
-// Routes
+// 🔗 Connect MongoDB
+connectDB();
+
+// 🔗 Routes
 app.use("/api", bookingRoutes);
 
-// Test route (health check)
+// ✅ Health check
 app.get("/", (req, res) => {
   res.send("Backend Running");
 });
 
-// PORT for Render (VERY IMPORTANT)
+// ❌ Handle unknown routes (VERY HELPFUL)
+app.use((req, res) => {
+  res.status(404).json({ message: "Route Not Found" });
+});
+
+// PORT (Render uses process.env.PORT)
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
