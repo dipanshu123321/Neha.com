@@ -11,38 +11,95 @@
 
 <!-- 🔹 ABOUT SECTION -->
 <section class="py-20">
-  <div class="max-w-5xl mx-auto px-6 text-center">
+  <div class="max-w-6xl mx-auto px-6 text-center">
 
     <h1 class="text-4xl font-bold text-pink-600 mb-6">
       About Neha Makeup Studio
     </h1>
 
-    <p class="text-gray-600 mb-10">
-      Neha Makeup Studio is dedicated to delivering elegant, flawless
-      makeup experiences for weddings, events, and special occasions.
-      We believe every client deserves to feel confident and beautiful.
+    <p class="text-gray-600 max-w-3xl mx-auto mb-14">
+      Neha Makeup Studio is a premium bridal & party makeup brand.
+      We blend creativity, luxury products, and modern techniques
+      to create timeless beauty for weddings and special occasions.
     </p>
 
-    <!-- TEAM -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+    <!-- 🔹 TEAM -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
 
-      <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition">
-        <h3 class="text-xl font-semibold mb-2">Founder</h3>
-        <p class="text-gray-600">Neha Verma</p>
+      <!-- 👑 FOUNDER -->
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden
+                  hover:shadow-2xl transition group">
+        <img
+          src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e"
+          alt="Founder"
+          class="w-full h-56 object-cover group-hover:scale-105 transition duration-500"
+        />
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-pink-600 mb-1">Neha Verma</h3>
+          <p class="text-sm text-gray-500 mb-3">Founder & Lead Makeup Artist</p>
+          <p class="text-gray-600 text-sm">
+            With years of experience in bridal and fashion makeup,
+            Neha specializes in enhancing natural beauty while
+            delivering elegant, flawless looks.
+          </p>
+        </div>
       </div>
 
-      <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition">
-        <h3 class="text-xl font-semibold mb-2">Co-Founder</h3>
-        <p class="text-gray-600">Creative Partner</p>
+      <!-- 🌸 CO-FOUNDER -->
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden
+                  hover:shadow-2xl transition group">
+        <img
+          src="https://images.unsplash.com/photo-1544005313-94ddf0286df2"
+          alt="Co-Founder"
+          class="w-full h-56 object-cover group-hover:scale-105 transition duration-500"
+        />
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-pink-600 mb-1">Creative Partner</h3>
+          <p class="text-sm text-gray-500 mb-3">Co-Founder & Operations</p>
+          <p class="text-gray-600 text-sm">
+            Handles creative planning, client coordination,
+            and ensures every project runs smoothly with
+            high professional standards.
+          </p>
+        </div>
       </div>
 
-      <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition">
-        <h3 class="text-xl font-semibold mb-2">Developer</h3>
-        <p class="text-gray-600">Dipanshu</p>
+      <!-- 💻 DEVELOPER (SPECIAL CARD) -->
+      <div class="relative rounded-2xl shadow-lg overflow-hidden
+                  hover:shadow-2xl transition bg-gradient-to-br
+                  from-gray-900 to-gray-800 text-white">
+
+        <div class="absolute inset-0 opacity-20">
+          <img
+            src="https://images.unsplash.com/photo-1518770660439-4636190af475"
+            class="w-full h-full object-cover"
+          />
+        </div>
+
+        <div class="relative p-6">
+          <h3 class="text-2xl font-bold text-pink-400 mb-1">
+            Dipanshu
+          </h3>
+          <p class="text-sm text-gray-300 mb-3">
+            Full-Stack Developer & System Architect
+          </p>
+
+          <p class="text-sm text-gray-200 mb-4">
+            Designed and developed the complete booking system,
+            admin dashboard, backend APIs, and database architecture.
+            Passionate about scalable systems and clean UI.
+          </p>
+
+          <div class="flex flex-wrap gap-2 text-xs">
+            <span class="px-3 py-1 bg-pink-600 rounded-full">JavaScript</span>
+            <span class="px-3 py-1 bg-pink-600 rounded-full">Node.js</span>
+            <span class="px-3 py-1 bg-pink-600 rounded-full">MongoDB</span>
+            <span class="px-3 py-1 bg-pink-600 rounded-full">Tailwind CSS</span>
+          </div>
+        </div>
       </div>
 
     </div>
-
   </div>
 </section>
 
@@ -70,7 +127,7 @@
   </div>
 </section>
 
-<!-- 🔹 ADMIN LOGIN SCRIPT (SINGLE & SAFE) -->
+<!-- 🔹 ADMIN LOGIN SCRIPT -->
 <script>
 document.getElementById("adminLoginBtn").addEventListener("click", () => {
   const user = document.getElementById("adminUser").value.trim();
@@ -78,7 +135,6 @@ document.getElementById("adminLoginBtn").addEventListener("click", () => {
   const msg  = document.getElementById("loginMsg");
 
   if (user === "admin" && pass === "admin123") {
-    // ✅ SAME KEY AS DASHBOARD
     localStorage.setItem("isAdminLoggedIn", "true");
     window.location.href = "admin-dashboard.html";
   } else {
