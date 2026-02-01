@@ -60,7 +60,7 @@
     <input id="adminPass" type="password" placeholder="Admin Password"
       class="w-full mb-4 p-3 border rounded focus:ring-2 focus:ring-pink-400">
 
-    <button onclick="adminLogin()"
+    <button id="adminLoginBtn"
       class="w-full bg-pink-600 text-white py-2 rounded
              hover:bg-pink-700 transition">
       Login For Admin
@@ -70,35 +70,21 @@
   </div>
 </section>
 
+<!-- 🔹 ADMIN LOGIN SCRIPT (SINGLE & SAFE) -->
 <script>
-function adminLogin(){
-  const user = document.getElementById("adminUser").value;
-  const pass = document.getElementById("adminPass").value;
+document.getElementById("adminLoginBtn").addEventListener("click", () => {
+  const user = document.getElementById("adminUser").value.trim();
+  const pass = document.getElementById("adminPass").value.trim();
+  const msg  = document.getElementById("loginMsg");
 
-  if(user === "admin" && pass === "admin123"){
-    localStorage.setItem("adminLoggedIn", "true");
+  if (user === "admin" && pass === "admin123") {
+    // ✅ SAME KEY AS DASHBOARD
+    localStorage.setItem("isAdminLoggedIn", "true");
     window.location.href = "admin-dashboard.html";
   } else {
-    document.getElementById("loginMsg").innerText = "Invalid credentials";
+    msg.textContent = "Invalid admin credentials";
   }
-}
-</script>
-
-<script>
-  
-function adminLogin(){
-  const user = document.getElementById("adminUser").value;
-  const pass = document.getElementById("adminPass").value;
-
-  // 🔐 Simple Admin Auth (as you wanted)
-  if(user === "admin" && pass === "admin123"){
-    localStorage.setItem("adminLoggedIn", "true");
-    window.location.href = "admin-dashboard.html";
-  } else {
-    document.getElementById("loginMsg").innerText =
-      "Invalid admin credentials";
-  }
-}
+});
 </script>
 
 </body>
