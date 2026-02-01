@@ -1,21 +1,31 @@
 import mongoose from "mongoose";
 
-const bookingSchema = new mongoose.Schema({
-  name: String,
-  phone: String,
-  email: String,
-  plan: String,
-  city: String,
-  date: String,
-  time: String,
-  status: {
-    type: String,
-    default: "Pending"
+const bookingSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: true
+    },
+    phone: {
+      type: String,
+      required: true
+      // ❌ unique REMOVED
+    },
+    email: {
+      type: String,
+      required: true
+      // ❌ unique REMOVED
+    },
+    plan: String,
+    city: String,
+    date: String,
+    time: String,
+    status: {
+      type: String,
+      default: "Pending"
+    }
   },
-  createdAt: {
-    type: Date,
-    default: Date.now
-  }
-});
+  { timestamps: true }
+);
 
 export default mongoose.model("Booking", bookingSchema);
