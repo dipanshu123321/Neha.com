@@ -2,59 +2,70 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Admin Dashboard</title>
+  <title>Admin Login | Neha Makeup</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 p-6">
 
-<h1 class="text-3xl font-bold text-pink-600 mb-6">
-  Admin Dashboard – Bookings
-</h1>
+<body class="min-h-screen flex items-center justify-center bg-pink-50">
 
-<div class="overflow-x-auto bg-white rounded-xl shadow">
-  <table class="w-full text-left">
-    <thead class="bg-pink-600 text-white">
-      <tr>
-        <th class="p-3">Name</th>
-        <th class="p-3">Phone</th>
-        <th class="p-3">Email</th>
-        <th class="p-3">Plan</th>
-        <th class="p-3">City</th>
-        <th class="p-3">Date</th>
-        <th class="p-3">Time</th>
-        <th class="p-3">Status</th>
-      </tr>
-    </thead>
-    <tbody id="rows"></tbody>
-  </table>
-</div>
+  <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md">
+    <h2 class="text-2xl font-bold text-center text-pink-600 mb-6">
+      Admin Login
+    </h2>
 
-<script>
-async function loadBookings(){
-  const res = await fetch("https://neha-makeup-website.onrender.com/api/bookings");
-  const data = await res.json();
+    <form id="adminLoginForm" class="space-y-4">
+      <input
+        type="email"
+        id="email"
+        placeholder="Admin Email"
+        class="w-full p-3 border rounded-xl focus:ring-2 focus:ring-pink-400 outline-none"
+        required
+      />
 
-  const tbody = document.getElementById("rows");
-  tbody.innerHTML = "";
+      <input
+        type="password"
+        id="password"
+        placeholder="Password"
+        class="w-full p-3 border rounded-xl focus:ring-2 focus:ring-pink-400 outline-none"
+        required
+      />
 
-  data.forEach(b => {
-    tbody.innerHTML += `
-      <tr class="border-b hover:bg-pink-50">
-        <td class="p-3">${b.name}</td>
-        <td class="p-3">${b.phone}</td>
-        <td class="p-3">${b.email}</td>
-        <td class="p-3">${b.plan}</td>
-        <td class="p-3">${b.city}</td>
-        <td class="p-3">${b.date}</td>
-        <td class="p-3">${b.time}</td>
-        <td class="p-3 font-semibold text-pink-600">${b.status}</td>
-      </tr>
-    `;
-  });
-}
+      <button
+        type="submit"
+        class="w-full bg-pink-600 text-white py-3 rounded-xl font-semibold
+               hover:bg-pink-700 hover:scale-105 transition"
+      >
+        Login
+      </button>
 
-loadBookings();
-</script>
+      <p id="errorMsg" class="text-center text-red-500 text-sm"></p>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById("adminLoginForm");
+    const errorMsg = document.getElementById("errorMsg");
+
+    // 🔐 Hardcoded admin credentials
+    const ADMIN_EMAIL = "admin@nehamakeup.com";
+    const ADMIN_PASSWORD = "admin123";
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
+        // Save session (simple)
+        localStorage.setItem("isAdminLoggedIn", "true");
+        window.location.href = "admin-dashboard.html";
+      } else {
+        errorMsg.textContent = "Invalid admin credentials";
+      }
+    });
+  </script>
 
 </body>
 </html>
