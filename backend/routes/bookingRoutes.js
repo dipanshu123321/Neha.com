@@ -3,29 +3,34 @@ import Booking from "../models/Booking.js";
 
 const router = express.Router();
 
-/* 🔹 CREATE BOOKING (form) */
+/* 🔹 CREATE BOOKING (From Contact / Booking Form) */
 router.post("/book", async (req, res) => {
   try {
     const booking = new Booking(req.body);
     await booking.save();
-    res.json({ message: "Booking successful" });
+
+    res.status(201).json({
+      message: "Booking successful"
+    });
   } catch (err) {
-    res.status(500).json({ message: "Booking failed" });
+    console.error("Booking Error:", err);
+    res.status(500).json({
+      message: "Booking failed"
+    });
   }
 });
 
-/* 🔹 GET ALL BOOKINGS (ADMIN) */
-router.get("/admin/bookings", async (req, res) => {
-  const bookings = await Booking.find().sort({ createdAt: -1 });
-  res.json(bookings);
-});
-
-/* 🔹 UPDATE STATUS (ADMIN) */
-router.put("/admin/update/:id", async (req, res) => {
-  await Booking.findByIdAndUpdate(req.params.id, {
-    status: req.body.status
-  });
-  res.json({ message: "Status updated" });
+/* 🔹 GET ALL BOOKINGS (ADMIN DASHBOARD – READ ONLY) */
+router.get("/bookings", async (req, res) => {
+  try {
+    const bookings = await Booking.find().sort({ createdAt: -1 });
+    res.json(bookings);
+  } catch (err) {
+    console.error("Fetch Error:", err);
+    res.status(500).json({
+      message: "Error fetching bookings"
+    });
+  }
 });
 
 export default router;
