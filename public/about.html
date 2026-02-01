@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About Us | Neha Makeup</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+<!-- 🔹 ABOUT SECTION -->
+<section class="py-20">
+  <div class="max-w-5xl mx-auto px-6 text-center">
+
+    <h1 class="text-4xl font-bold text-pink-600 mb-6">
+      About Neha Makeup Studio
+    </h1>
+
+    <p class="text-gray-600 mb-10">
+      Neha Makeup Studio is dedicated to delivering elegant, flawless
+      makeup experiences for weddings, events, and special occasions.
+      We believe every client deserves to feel confident and beautiful.
+    </p>
+
+    <!-- TEAM -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition">
+        <h3 class="text-xl font-semibold mb-2">Founder</h3>
+        <p class="text-gray-600">Neha Verma</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition">
+        <h3 class="text-xl font-semibold mb-2">Co-Founder</h3>
+        <p class="text-gray-600">Creative Partner</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition">
+        <h3 class="text-xl font-semibold mb-2">Developer</h3>
+        <p class="text-gray-600">Dipanshu</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- 🔒 ADMIN LOGIN SECTION -->
+<section class="py-20 bg-gray-100">
+  <div class="max-w-md mx-auto bg-white p-6 rounded-xl shadow">
+
+    <h2 class="text-2xl font-bold text-center text-pink-600 mb-4">
+      Only For Admin
+    </h2>
+
+    <input id="adminUser" type="text" placeholder="Admin Username"
+      class="w-full mb-3 p-3 border rounded focus:ring-2 focus:ring-pink-400">
+
+    <input id="adminPass" type="password" placeholder="Admin Password"
+      class="w-full mb-4 p-3 border rounded focus:ring-2 focus:ring-pink-400">
+
+    <button onclick="adminLogin()"
+      class="w-full bg-pink-600 text-white py-2 rounded
+             hover:bg-pink-700 transition">
+      Login For Admin
+    </button>
+
+    <p id="loginMsg" class="text-center text-red-500 mt-3"></p>
+  </div>
+</section>
+
+<script>
+function adminLogin(){
+  const user = document.getElementById("adminUser").value;
+  const pass = document.getElementById("adminPass").value;
+
+  // 🔐 Simple Admin Auth (as you wanted)
+  if(user === "admin" && pass === "admin123"){
+    localStorage.setItem("adminLoggedIn", "true");
+    window.location.href = "admin-dashboard.html";
+  } else {
+    document.getElementById("loginMsg").innerText =
+      "Invalid admin credentials";
+  }
+}
+</script>
+
+</body>
+</html>
