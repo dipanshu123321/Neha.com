@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dipanshu Patidar | Developer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-black text-white overflow-hidden">
+
+<!-- BACK BUTTON -->
+<a href="about.html"
+   class="fixed top-4 left-4 z-50 px-4 py-2 bg-white/10 backdrop-blur
+          border border-white/30 rounded-full hover:bg-white hover:text-black transition">
+  ← Back
+</a>
+
+<!-- BACKGROUND VIDEO -->
+<video autoplay muted loop
+  class="fixed inset-0 w-full h-full object-cover opacity-30">
+  <source src="https://cdn.coverr.co/videos/coverr-coding-on-laptop-1574/1080p.mp4"
+          type="video/mp4">
+</video>
+
+<div class="relative min-h-screen flex items-center justify-center px-4">
+
+  <div class="bg-black/70 backdrop-blur-xl rounded-3xl p-8 max-w-4xl w-full
+              text-center shadow-2xl">
+
+    <!-- DEVELOPER IMAGE -->
+    <img
+      src="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1"
+      class="dev-photo w-36 h-36 sm:w-40 sm:h-40 mx-auto rounded-full
+             border-4 border-blue-500 object-cover mb-6"
+    />
+
+    <h1 class="text-3xl font-bold">Dipanshu Patidar</h1>
+    <p class="text-blue-400 mb-4">
+      Frontend • Backend • Full Stack Developer
+    </p>
+
+    <p class="text-gray-300 max-w-2xl mx-auto mb-8 text-sm sm:text-base">
+      Passionate about building animated, modern web experiences and scalable
+      backend systems. Turning ideas into real-world products step by step.
+    </p>
+
+    <!-- CONTACT INFO -->
+    <div class="flex flex-col sm:flex-row justify-center gap-6 mb-10 text-sm">
+
+      <div class="flex items-center gap-2 justify-center">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png"
+             class="w-5 h-5">
+        <span>dipanshu.patidar0001@gmail.com</span>
+      </div>
+
+      <div class="flex items-center gap-2 justify-center">
+        <img src="https://cdn-icons-png.flaticon.com/512/597/597177.png"
+             class="w-5 h-5">
+        <span>+91 9753483333</span>
+      </div>
+
+    </div>
+
+    <!-- SKILLS ROW -->
+    <div class="flex justify-center gap-4 flex-wrap">
+
+      <span class="skill wave-1 bg-blue-600">HTML</span>
+      <span class="skill wave-2 bg-purple-600">Tailwind</span>
+      <span class="skill wave-3 bg-green-600">JavaScript</span>
+      <span class="skill wave-4 bg-yellow-500 text-black">Node.js</span>
+      <span class="skill wave-5 bg-red-600">MongoDB</span>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- ANIMATIONS -->
+<style>
+.skill {
+  padding: 10px 18px;
+  border-radius: 9999px;
+  font-weight: 600;
+  animation: wave 5s infinite ease-in-out;
+}
+
+@keyframes wave {
+  0%   { transform: translateY(0); }
+  20%  { transform: translateY(-18px); }
+  40%  { transform: translateY(0); }
+  60%  { transform: translateY(6px); }
+  80%  { transform: translateY(0); }
+  100% { transform: translateY(0); }
+}
+
+.wave-1 { animation-delay: 0s; }
+.wave-2 { animation-delay: 1s; }
+.wave-3 { animation-delay: 2s; }
+.wave-4 { animation-delay: 3s; }
+.wave-5 { animation-delay: 4s; }
+
+
+
+@keyframes photoPulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.12); }
+  100% { transform: scale(1); }
+}
+</style>
+
+</body>
+</html>
